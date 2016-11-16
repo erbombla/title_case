@@ -1,14 +1,16 @@
 class String
   define_method(:title_case) do
-    banana_split = self.split
-    banana_split.each do |banana|
-      if banana === 'the'
+    exceptions = [ "a","an","the","and","but","for","or","so","of","yet","with" ]
+    sentence = self.split
+    sentence.each do |word|
+      if exceptions.include?(word)
+        word
       # if banana === 'a' || banana === 'an' || banana === 'the' banana === 'or' || banana === 'for' || banana === 'on'
       else
-      banana.capitalize!()
+        word.capitalize!()
+      end
     end
-    end
-    banana_split[0].capitalize!()
-    banana_split.join(' ')
+    # sentence[0].capitalize!()
+    sentence.join(" ")
   end
 end
